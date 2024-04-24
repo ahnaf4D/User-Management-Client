@@ -29,6 +29,7 @@ export default function AddUser() {
             icon: 'success',
             confirmButtonText: 'Ok',
           });
+          form.reset();
         }
       });
   };

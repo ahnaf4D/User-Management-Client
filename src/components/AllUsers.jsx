@@ -2,6 +2,7 @@ import { MdModeEdit } from 'react-icons/md';
 import { IoClose } from 'react-icons/io5';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 export default function AllUsers() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -59,9 +60,11 @@ export default function AllUsers() {
                 <td>{user.gender}</td>
                 <td>{user.status}</td>
                 <td className='flex items-center gap-2'>
-                  <button className='btn btn-ghost btn-outline text-2xl'>
-                    <MdModeEdit />
-                  </button>
+                  <Link to={`/update/${user._id}`}>
+                    <button className='btn btn-ghost btn-outline text-2xl'>
+                      <MdModeEdit />
+                    </button>
+                  </Link>
                   <button
                     className='btn btn-ghost btn-outline text-2xl'
                     onClick={() => handleDeleteUser(user._id)}
