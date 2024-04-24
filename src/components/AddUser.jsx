@@ -2,8 +2,36 @@ import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import '../App.css';
 import { RiArrowLeftDoubleFill } from 'react-icons/ri';
+import Swal from 'sweetalert2';
 
 export default function AddUser() {
+  const handleAddUser = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const gender = form.gender.value;
+    const status = form.status.value;
+    const newUser = { name, email, gender, status };
+    fetch(`http://localhost:5000/add-users`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'User Added Successfully',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+          });
+        }
+      });
+  };
   return (
     <>
       <Nav />
@@ -14,7 +42,7 @@ export default function AddUser() {
       </Link>
       <div className='roboto-slab flex flex-col items-center'>
         <h2 className='text-center text-3xl font-medium'>New User</h2>
-        <form className='form-control text-2xl p-6'>
+        <form className='form-control text-2xl p-6' onSubmit={handleAddUser}>
           <div className='form-group'>
             <label htmlFor='name' className='label'>
               Name
