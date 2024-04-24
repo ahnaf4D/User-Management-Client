@@ -13,7 +13,7 @@ export default function AddUser() {
     const gender = form.gender.value;
     const status = form.status.value;
     const newUser = { name, email, gender, status };
-    fetch(`http://localhost:5000/add-users`, {
+    fetch(`https://api-user-managment.vercel.app/add-users`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',

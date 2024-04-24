@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default function AllUsers() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/users`)
+    fetch(`https://api-user-managment.vercel.app/users`)
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
@@ -21,7 +21,7 @@ export default function AllUsers() {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://api-user-managment.vercel.app/users/${id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())

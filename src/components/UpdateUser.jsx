@@ -15,7 +15,7 @@ export default function UpdateUser() {
     const gender = form.gender.value;
     const status = form.status.value;
     const updatedInfo = { name, email, gender, status };
-    fetch(`http://localhost:5000/update/${_id}`, {
+    fetch(`https://api-user-managment.vercel.app/update/${_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

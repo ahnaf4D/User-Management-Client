@@ -17,7 +17,8 @@ const router = createBrowserRouter([
   {
     path: '/update/:id',
     element: <UpdateUser></UpdateUser>,
-    loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`),
+    loader: ({ params }) =>
+      fetch(`https://api-user-managment.vercel.app/users/${params.id}`),
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

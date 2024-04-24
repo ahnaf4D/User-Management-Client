@@ -17,7 +17,7 @@ Welcome to the User Management System, a full-stack project designed for easy us
 
 ## Backend
 
-For the backend code of the User Management System, please refer to the [Server Side Code](https://github.com/ahnaf4D/User-Management-Server/tree/main) repository.
+For the backend code of the User Management System, please refer to the [Server Side Code](https://github.com/ahnaf4D/User-Management-Server/) repository.
 
 ---
 
