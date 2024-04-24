@@ -60,17 +60,23 @@ export default function AllUsers() {
                 <td>{user.gender}</td>
                 <td>{user.status}</td>
                 <td className='flex items-center gap-2'>
-                  <Link to={`/update/${user._id}`}>
+                  <Link
+                    to={`/update/${user._id}`}
+                    className='tooltip'
+                    data-tip='Edit'
+                  >
                     <button className='btn btn-ghost btn-outline text-2xl'>
                       <MdModeEdit />
                     </button>
                   </Link>
-                  <button
-                    className='btn btn-ghost btn-outline text-2xl'
-                    onClick={() => handleDeleteUser(user._id)}
-                  >
-                    <IoClose />
-                  </button>
+                  <div className='tooltip' data-tip='Delete'>
+                    <button
+                      className='btn btn-ghost btn-outline text-2xl'
+                      onClick={() => handleDeleteUser(user._id)}
+                    >
+                      <IoClose />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
